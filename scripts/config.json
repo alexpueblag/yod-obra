@@ -1,0 +1,31 @@
+{
+  "_comment": "Para usar este sistema en otra obra: copia este archivo, ajusta sheet_id y project. El resto queda igual.",
+
+  "project": {
+    "name": "YOD San Fco — Control Obra Negra",
+    "shortName": "YOD San Fco",
+    "startDate": "2026-04-01",
+    "currentWeek": 1
+  },
+
+  "sheet_id": "1zGuKB3nv-1Kwuu1X6EJNhNnqCkVyAAZ8rLYHTVmS2VU",
+
+  "_help": "data_start_row=1 para todas las hojas: la heurística del script ignora automáticamente filas de título, header, etiquetas de rol y filas vacías. Solo cambia este valor si tu Sheet tiene más de 5 filas iniciales de leyenda que confundan al parser.",
+
+  "sheets": {
+    "PLAN":                  { "entity": "_plan",            "data_start_row": 1 },
+    "Control_Diario":        { "entity": "dailyLogs",        "data_start_row": 1 },
+    "Restricciones_Diario":  { "entity": "restrictions",     "data_start_row": 1 },
+    "Lookahead_3S_M":        { "entity": "lookahead",        "data_start_row": 1 },
+    "Liberacion_Etapa":      { "entity": "stageReleases",    "data_start_row": 1 },
+    "Liberacion_Colado":     { "entity": "pourReleases",     "data_start_row": 1 },
+    "Almacén_Diario":        { "entity": "warehouse",        "data_start_row": 1 },
+    "Asistencia_Diario":     { "entity": "attendance",       "data_start_row": 1 },
+    "Calidad_Diario":        { "entity": "qualityLogs",      "data_start_row": 1 },
+    "Destajos_J":            { "entity": "piecework",        "data_start_row": 1 },
+    "Materiales_2S_V":       { "entity": "materialForecasts","data_start_row": 1 },
+    "Reporte_Semanal_S":     { "entity": "weeklyReports",    "data_start_row": 1 },
+    "Cuadrillas":            { "entity": "crewsPlan",        "data_start_row": 1 },
+    "Catalogos":             { "entity": "_catalogs",        "data_start_row": 1 }
+  }
+}

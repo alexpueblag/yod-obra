@@ -504,20 +504,36 @@ export default function App() {
   const visibleModules = moduleList.filter((m) => (roleModules[role] || []).includes(m.key))
   const tasks = useMemo(() => buildTasks(data, role, metrics), [data, role, metrics])
 
-  // Cargar data.json al montar (lo genera el script Python desde el Sheet)
-  useEffect(() => {
-    const url = `${import.meta.env.BASE_URL}data.json`
-    fetch(url, { cache: 'no-store' })
+  // Cargar data.json desde el archivo público (lo genera el script Python desde el Sheet)
+  function loadData(silent = false) {
+    if (!silent) setSyncStatus({ message: 'Cargando datos del Sheet…', tone: 'info' })
+    const url = `${import.meta.env.BASE_URL}data.json?t=${Date.now()}`
+    return fetch(url, { cache: 'no-store' })
       .then((r) => r.ok ? r.json() : Promise.reject(`HTTP ${r.status}`))
       .then((json) => {
         setData((prev) => ({ ...makeEmptyState(), ...json, users: prev.users, routine: json.routine || prev.routine }))
         setLoading(false)
+        setLoadError(null)
+        if (!silent) {
+          setSyncStatus({ message: `Datos actualizados ✓`, tone: 'release' })
+          setTimeout(() => setSyncStatus({ message: '', tone: 'info' }), 2500)
+        }
       })
       .catch((err) => {
         console.warn('No se pudo cargar data.json:', err)
         setLoadError(String(err))
         setLoading(false)
+        if (!silent) setSyncStatus({ message: `Error al cargar: ${err}`, tone: 'restriction' })
       })
+  }
+
+  // Carga inicial al montar
+  useEffect(() => { loadData(true) }, [])
+
+  // Auto-refresh silencioso cada 5 minutos
+  useEffect(() => {
+    const interval = setInterval(() => loadData(true), 5 * 60 * 1000)
+    return () => clearInterval(interval)
   }, [])
 
   function patch(path, updater) {
@@ -600,6 +616,7 @@ export default function App() {
             )}
             <span className="hidden text-[11px] font-mono text-ink-soft md:inline">S{data.meta.currentWeek} · {new Date(data.meta.lastUpdated).toLocaleDateString('es-MX')}</span>
             <input ref={fileRef} type="file" accept="application/json" className="hidden" onChange={importJson} />
+            <Button variant="secondary" onClick={() => loadData(false)}>↻ Actualizar</Button>
             <Button variant="ghost" onClick={() => fileRef.current?.click()}>Importar</Button>
             <Button variant="ghost" onClick={exportJson}>Exportar</Button>
           </div>
