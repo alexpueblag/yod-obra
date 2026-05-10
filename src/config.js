@@ -6,10 +6,10 @@
 // y las capturas se quedan en cola local sin escribir al Sheet.
 // ============================================================================
 
-export const APPS_SCRIPT_URL = ''
+export const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwP1OYct-3WevFVwoa8ab4lY-LdQtjClVizzVegbB55NcPnMHPC92fugv485Up3UPc/exec'
 // Ejemplo: 'https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxx/exec'
 
-export const SHARED_SECRET = 'cambiame-en-produccion'
+export const SHARED_SECRET = '5rhZoGPZyjh4Rjgz-huQehCLFRt3-sUk'
 // IMPORTANTE: este mismo valor debe estar también en el Apps Script (Code.gs).
 
 // ============================================================================
