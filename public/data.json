@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "exportedAt": "2026-01-01T00:00:00",
+  "source": "placeholder",
+  "meta": {
+    "projectName": "YOD San Fco — Control Obra Negra",
+    "currentWeek": 1,
+    "lastUpdated": "2026-01-01T00:00:00"
+  },
+  "houses": [],
+  "dailyLogs": [],
+  "restrictions": [],
+  "lookahead": [],
+  "stageReleases": [],
+  "pourReleases": [],
+  "qualityLogs": [],
+  "warehouse": [],
+  "materialForecasts": [],
+  "attendance": [],
+  "piecework": [],
+  "crewsPlan": [],
+  "catalogs": {}
+}
