@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-12T18:32:09.045108+00:00",
+  "exportedAt": "2026-06-12T20:53:52.438113+00:00",
   "source": "google-sheets",
   "meta": {
     "projectName": "YOD San Fco — Control Obra Negra",
     "currentWeek": 1,
-    "lastUpdated": "2026-06-12T18:32:09.045121+00:00"
+    "lastUpdated": "2026-06-12T20:53:52.438130+00:00"
   },
   "houses": [
     {
@@ -56,32 +56,32 @@
     {
       "id": "C10",
       "code": "C10",
-      "startWeek": 5
+      "startWeek": 6
     },
     {
       "id": "C11",
       "code": "C11",
-      "startWeek": 6
+      "startWeek": 8
     },
     {
       "id": "C12",
       "code": "C12",
-      "startWeek": 6
+      "startWeek": 9
     },
     {
       "id": "C13",
       "code": "C13",
-      "startWeek": 7
+      "startWeek": 10
     },
     {
       "id": "C14",
       "code": "C14",
-      "startWeek": 7
+      "startWeek": 10
     },
     {
       "id": "C15",
       "code": "C15",
-      "startWeek": 8
+      "startWeek": 11
     }
   ],
   "dailyLogs": [],
